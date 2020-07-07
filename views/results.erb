@@ -1,9 +1,13 @@
 <h1>Your Text Analysis</h1>
 
-<h2>Number of Words: </h2>
+<h2>Number of Words: <% @number = @analyzed_text.count_of_words %><%= @number %></h2>
 
-<h2>Vowels: </h2>
+<h2>Vowels: <% @vowels = @analyzed_text.count_of_vowels %><%= @vowels %></h2>
 
-<h2>Consonants: </h2>
-
-<h2>Most Common Letter: _____ used _____ times</h2>
+<h2>Consonants: <% @consonants = @analyzed_text.count_of_consonants %><%= @consonants %></h2>
+<% @most = @analyzed_text.most_used_letter %>
+<% @most.each do |k,v| %>
+<% @letter = k.to_s.upcase %>
+<% @times = v.to_s %>
+<% end %>
+<h2>Most Common Letter: <%= @letter %>, used <%= @times %> times</h2>
